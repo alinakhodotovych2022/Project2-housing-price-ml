@@ -1,0 +1,33 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data files (large datasets should not be committed)
+*.csv
+*.xlsx
+*.parquet
+*.zip
+
+# Environment files
+.env
+.venv/
+venv/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Google Colab temporary files
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# VSCode
+.vscode/

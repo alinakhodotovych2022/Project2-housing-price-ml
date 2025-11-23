@@ -1,0 +1,132 @@
+PROJECT 2 PITCH — MACHINE LEARNING MODELING AND PIPELINE
+
+
+1. BUSINESS PROBLEM SCENARIO
+
+The U.S. housing market varies dramatically between ZIP codes. Median or average home prices often hide significant inequality: luxury subdivisions, rural areas, and mobile-home communities frequently get mixed into one “average,” misleading families, investors, and advisors.
+
+Business Problem:
+Relocating families and real-estate investors need accurate, data-driven predictions of housing values to avoid overpaying, to plan relocation budgets effectively, and to identify stable or growing neighborhoods. Traditional indicators are insufficient.
+
+Project Goal:
+Build a regression-based machine learning model to predict next-month home values for each ZIP code in Texas, using 25 years (2000–2025) of Zillow ZHVI monthly data. This supports affordability evaluation and neighborhood comparison.
+
+Stakeholders:
+• Families relocating to Texas
+• Real-estate investors and developers
+• Mortgage and financial advisors
+• City planners and housing researchers
+
+Why Machine Learning:
+Housing prices show long-term cycles, nonlinear behavior, seasonality, and volatility. Machine learning can detect complex trends and interactions that basic statistics cannot model. Predicting next-month values helps users understand upcoming affordability shifts.
+
+Dataset Description:
+• Source: Zillow Research (ZHVI All Homes)
+• Size: ~26,000 rows × 318 columns
+• Coverage: ZIP-code–level home values
+• Structure: Region identifiers + monthly values from Jan 2000 through Sep 2025
+
+Dataset Relevance:
+The dataset directly provides long-term price trajectories needed to forecast near-term housing values at a fine geographic resolution (ZIP code), matching the business goal of accurate affordability prediction.
+
+Success Metrics:
+Technical:
+• RMSE, MAE, MAPE, R²
+• TimeSeriesSplit validation stability
+
+Business:
+• Accurate affordability classification (rising vs stable vs declining ZIPs)
+• Reliable ranking of ZIP-code future values
+• Improved decision making for relocation and investment
+
+
+2. PROBLEM SOLVING PROCESS
+
+2.1 Data Acquisition and Understanding
+• Load dataset from local storage or Google Drive
+• Inspect structure, types, and presence of missing values
+• Verify time-series continuity
+• Create preliminary visualizations: distribution, long-term trend lines
+
+2.2 Data Preparation and Feature Engineering
+• Clean missing values (interpolation or forward/backward fill)
+• Convert wide format (monthly columns) into long time-series format
+• Engineer predictive features:
+  – Rolling averages (3, 6, 12 months)
+  – Rolling standard deviation (volatility)
+  – Percent change
+  – Growth trend slope
+  – Last known value
+• Build a preprocessing Pipeline in scikit-learn
+• Split data: train / validation / test using time-aware splitting
+
+2.3 Modeling Strategy
+Models to evaluate (minimum 3 as required):
+• Linear Regression (baseline)
+• Random Forest Regressor
+• XGBoost Regressor
+
+Planned approach:
+• Use TimeSeriesSplit for cross-validation
+• Perform hyperparameter tuning using RandomizedSearchCV
+• Evaluate using RMSE, MAE, MAPE, R²
+• Select final model based on both technical and business metrics
+
+2.4 Results Interpretation and Communication
+• Visualize predicted vs actual next-month home values
+• Create feature importance plots (Random Forest, XGBoost, SHAP optional)
+• Convert results into insights:
+  – Identify undervalued ZIP codes
+  – Highlight growth areas
+  – Explain volatility-driven risks
+• Communicate findings in simple language for non-technical stakeholders
+
+2.5 Conceptual Framework (Pipeline Flowchart)
+Data → Cleaning → Feature Engineering → Modeling → Evaluation → Insights → Recommendations
+
+Dependencies:
+• Clean, standardized features are required for training
+• Feature engineering strongly influences model accuracy
+• Cross-validation informs model selection
+• Final insights depend on chosen model’s performance
+
+
+3. TIMELINE AND SCOPE (7-DAY EXCELLED VERSION)
+
+Day 1 — Dataset Finalization & Problem Formulation
+• Import dataset, inspect structure
+• Refine business problem and success metrics
+• Create GitHub repository
+
+Day 2 — Exploratory Data Analysis
+• Conduct full data profiling
+• Generate summary statistics
+• Build visualizations for trends, distributions, and anomalies
+
+Day 3 — Data Preprocessing
+• Clean missing values
+• Engineer rolling and trend-based features
+• Build preprocessing Pipeline
+• Time-aware train/validation/test split
+
+Day 4 — Model Development
+• Train baseline Linear Regression
+• Train Random Forest Regressor
+• Train XGBoost Regressor
+• Perform hyperparameter tuning
+
+Day 5 — Model Evaluation
+• Compare models (RMSE, MAE, MAPE, R²)
+• Select final model
+• Generate feature importance plots
+
+Day 6 — Business Impact & Presentation Outline
+• Convert model results into business insights
+• Prepare visualizations for the final presentation
+• Outline the 10-minute video structure
+
+Day 7 — Final Review and Submission
+• Clean and finalize Jupyter Notebook
+• Prepare GitHub repository for submission
+• Record final video
+• Submit all deliverables to Canvas
